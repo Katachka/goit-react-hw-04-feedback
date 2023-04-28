@@ -10,8 +10,8 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-const handleClickButton = e => {
-  const option = e.target.name;
+const handleClickButton = option => {
+  
   
   switch (option) {
     case 'good':
@@ -30,7 +30,7 @@ const handleClickButton = e => {
   }
 };  
 
-  const countTotalFeedback = () => good + neutral + bad;
+const countTotalFeedback = () => good + neutral + bad;
   
 const countPositiveFeedbackPercentage = () => {
   const totalFeedback = countTotalFeedback();
@@ -55,7 +55,7 @@ const countPositiveFeedbackPercentage = () => {
         </Section>
 
          <Section title="Statistics">
-            {countTotalFeedback > 0 ? (
+            {countTotalFeedback() > 0 ? (
               <Statistics
                 good={good}
                 neutral={neutral}
